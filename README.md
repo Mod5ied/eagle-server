@@ -115,16 +115,7 @@ Products:
 - PATCH `/api/products/:id/status` { status } -> update status
 
 Health:
-- GET `/api/healthz` -> { status: 'ok' }
+- GET `/api/health` -> { status: 'ok' }
 
 ## Logging
 All request lifecycle events logged via Pino.
-
-## Notes
-- SKU uniqueness enforced server-side; 409 returned on conflict.
-- Firestore timestamps stored as Date objects; conversion handled in service.
-
-## Future Enhancements (Optional)
-- Firestore security rules to restrict direct client writes.
-- Rate limiting middleware.
-- Structured error classes.
