@@ -34,7 +34,7 @@ export async function logoutHandler(_req: Request, res: Response) {
 function cookieOptions() {
   return {
     httpOnly: true,
-    sameSite: 'strict' as const,
+    sameSite: process.env.NODE_ENV === 'production' ? 'none' as const : 'lax' as const,
     secure: process.env.NODE_ENV === 'production',
     path: '/',
     maxAge: 1000 * 60 * 60 // 1h

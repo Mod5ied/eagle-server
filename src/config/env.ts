@@ -6,7 +6,7 @@ const envSchema = z.object({
   PORT: z.string().default('4000'),
   JWT_SECRET: z.string().min(10, 'JWT_SECRET is required'),
   TOKEN_EXPIRY: z.string().default('1h'),
-  FRONTEND_ORIGIN: z.string().url(),
+  FRONTEND_ORIGIN: z.string().min(1, 'Frontend origin is required'), // Allow comma-separated URLs
   DEMO_EMAIL: z.string().email(),
   DEMO_PASSWORD: z.string().min(8),
   FIREBASE_PROJECT_ID: z.string(),
